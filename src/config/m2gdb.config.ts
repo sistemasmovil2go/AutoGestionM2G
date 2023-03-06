@@ -1,6 +1,7 @@
 import { DataSource } from "typeorm";
 import { SQL_SERVER_PORT } from "../constants";
 import { Venta } from "../entities/venta";
+import { Usuario } from "../entities/usuario";
 
 export const SqlServerDataSource = new DataSource({
   type: "mssql",
@@ -12,7 +13,7 @@ export const SqlServerDataSource = new DataSource({
   synchronize: false,
   logging: true,
   options: { encrypt: false },
-  entities: [Venta],
+  entities: [Venta, Usuario],
   // subscribers: [],
   // migrations: [],
 });
