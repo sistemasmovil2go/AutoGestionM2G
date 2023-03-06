@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { ISSABEL_PORT } from "../constants";
-import { Numeros } from "../entities/numeros";
+import { Agente } from "../entities/agente";
 
 export const IssabelDataSource = new DataSource({
   type: "mysql",
@@ -11,7 +11,7 @@ export const IssabelDataSource = new DataSource({
   database: "gestion_bd",
   synchronize: false,
   logging: true,
-  entities: [Numeros],
+  entities: [Agente],
   // subscribers: [],
   // migrations: [],
 });

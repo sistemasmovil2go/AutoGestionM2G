@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import Tickets from "./config/airtable.config";
+// import Tickets from "./config/airtable.config";
 import app from "./app";
 import { EXPRESS_PORT } from "./constants";
 import { SqlServerDataSource } from "./config/m2gdb.config";
@@ -22,8 +22,8 @@ async function main() {
 
   // console.log("La venta 2000: ", venta2000);
 
-  const records = await Tickets.select({ view: "Tareas Sistemas" }).firstPage();
-  console.log(records[0]);
+  // const records = await Tickets.select({ view: "Tareas Sistemas" }).firstPage();
+  // console.log(records[0]);
 }
 
 main();

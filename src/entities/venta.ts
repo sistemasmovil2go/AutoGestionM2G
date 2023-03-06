@@ -56,7 +56,7 @@ Seguridad.Seg_Usuario AS superv ON usuarios.id_jefe = superv.id_user LEFT OUTER 
 dbo.arbol_general_servicios AS serv ON vta_det.id_producto_servicio = serv.IdCodigo LEFT OUTER JOIN
 Seguridad.Seg_Rol AS perfiles ON usuarios.id_perfil = perfiles.idRol;`,
 })
-export class ResumenVentasGeneral {
+export class Venta {
   @ViewColumn({ name: "id_venta_cabecera" })
   idVentaCabecera: number;
 
