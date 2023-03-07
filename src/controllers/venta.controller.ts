@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getVentaById, getVentas } from "../services/venta.service";
+import { getVentaById, getVentaAsesor } from "../services/venta.service";
 
 export async function getVentasController(
   req: Request,
@@ -8,7 +8,7 @@ export async function getVentasController(
   try {
     const identificacion = req.params.identificacion;
 
-    const ventas = await getVentas(identificacion);
+    const ventas = await getVentaAsesor(identificacion);
     res.status(200).send(ventas);
   } catch (e: any) {
     console.log(e.message);

@@ -1,6 +1,6 @@
-import { Agente } from "../entities/agente";
+import { Agente } from "../models/agente";
 
-export async function listAgentes() {
+export async function getAgentes() {
   const agentes = await Agente.find({ where: { estatus: "A" } });
 
   return agentes;

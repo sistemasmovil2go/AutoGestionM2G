@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { listAgentes, getAgenteById } from "../services/agente.service";
+import { getAgentes, getAgenteById } from "../services/agente.service";
 
-export async function listAgentesController(
+export async function getAgentesController(
   _req: Request,
   res: Response
 ): Promise<void> {
   try {
-    const agentes = await listAgentes();
+    const agentes = await getAgentes();
 
     res.status(200).send(agentes);
   } catch (e: any) {

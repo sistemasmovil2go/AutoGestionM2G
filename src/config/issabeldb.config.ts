@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm";
 import { ISSABEL_PORT } from "../constants";
-import { Agente } from "../entities/agente";
+import { Agente } from "../models/agente";
 
 export const IssabelDataSource = new DataSource({
   type: "mysql",

@@ -8,7 +8,4 @@ const airtable = new Airtable({
   endpointUrl: "https://api.airtable.com",
 });
 
-// const airtable = new Airtable();
-const Tickets = airtable.base("appSCgQWTOo1VHfND").table("tbloVUe3X8FeclGtE");
-
-export default Tickets;
+export default airtable;

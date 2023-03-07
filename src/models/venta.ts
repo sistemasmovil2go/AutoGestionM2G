@@ -35,7 +35,7 @@ export class Venta extends BaseEntity {
   @Column({ name: "ciclo_pago" })
   cicloPago: string;
 
-  @Column({ name: "fecha_operativa" })
+  @Column({ name: "fecha_operativa", type: "date" })
   fechaOperativa: Date;
 
   @Column({ name: "asesor" })

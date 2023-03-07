@@ -3,7 +3,7 @@ import {
   getVentaByIdController,
   // getVentasController,
 } from "../controllers/venta.controller";
-import { Usuario } from "../entities/usuario";
+import { Usuario } from "../models/usuario";
 
 const router = Router();
 

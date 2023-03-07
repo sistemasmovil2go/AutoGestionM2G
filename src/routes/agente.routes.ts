@@ -1,12 +1,12 @@
 import { Router } from "express";
 import {
   getAgenteByIdController,
-  listAgentesController,
+  getAgentesController,
 } from "../controllers/agente.controller";
 
 const router = Router();
 
-router.get("/agente", listAgentesController);
+router.get("/agente", getAgentesController);
 
 router.get("/agente/:num", getAgenteByIdController);
 
