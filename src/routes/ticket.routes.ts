@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { getTicketsAsesorController } from "../controllers/ticket.controller";
+import {
+  getTicketsAsesorController,
+  insertTicketController,
+} from "../controllers/ticket.controller";
 
 const router = Router();
 
-router.get("/ticket", getTicketsAsesorController);
+router.get("/ticket/:puesto", getTicketsAsesorController);
 
-router.post("/ticket");
+router.post("/ticket/:puesto", insertTicketController);
 
 export default router;

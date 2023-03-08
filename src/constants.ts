@@ -6,3 +6,10 @@ export const SQL_SERVER_PORT: number = Number(process.env.SQL_SERVER_PORT);
 export const ISSABEL_PORT: number = Number(process.env.ISSABEL_PORT);
 export const ENV = process.env.ENV;
 export const AIRTABLE_ACCESS_TOKEN = process.env.AIRTABLE_ACCESS_TOKEN;
+
+export const tipoDeTicket = [
+  "Desancle",
+  "Reserva Sugar",
+  "Cambiar de APP a OP",
+  "Llamada de contacto",
+] as const;

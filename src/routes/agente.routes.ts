@@ -1,13 +1,13 @@
 import { Router } from "express";
 import {
-  getAgenteByIdController,
+  getAgenteByPuestoController,
   getAgentesController,
 } from "../controllers/agente.controller";
 
 const router = Router();
 
-router.get("/agente", getAgentesController);
+router.get("/asesor", getAgentesController);
 
-router.get("/agente/:num", getAgenteByIdController);
+router.get("/asesor/:puesto", getAgenteByPuestoController);
 
 export default router;

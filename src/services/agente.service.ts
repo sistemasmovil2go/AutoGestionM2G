@@ -6,8 +6,8 @@ export async function getAgentes() {
   return agentes;
 }
 
-export async function getAgenteById(numero: string) {
-  const agente = await Agente.find({ where: { estatus: "A", number: numero } });
+export async function getAgenteByPuesto(puesto: string): Promise<Agente> {
+  const agente = await Agente.find({ where: { estatus: "A", number: puesto } });
 
-  return agente;
+  return agente[0];
 }

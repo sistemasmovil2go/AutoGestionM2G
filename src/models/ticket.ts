@@ -9,38 +9,15 @@ export class Ticket {
     .table("tbloVUe3X8FeclGtE");
 
   public getOpTickets() {
-    const tickets = this.opTickets.select();
-    return tickets;
+    return this.opTickets;
   }
+
   public async getSysTickets() {
-    let tickets: unknown[] = [];
-    let x = this.sysTickets.select({
-      // Selecting the first 3 records in Tareas Sistemas:
+    let tickets = this.sysTickets.select({
       view: "Gestión de Hoy",
-      // returnFieldsByFieldId: true,
+      filterByFormula: "{Ticket} = 'Otro tipo de Soporte'",
     });
 
-    // .eachPage(
-    //   function page(records, fetchNextPage) {
-    //     // This function (`page`) will get called for each page of records.
-    //     records.forEach(function (record) {
-    //       tickets.push(record.fields);
-    //     });
-
-    //     // To fetch the next page of records, call `fetchNextPage`.
-    //     // If there are more records, `page` will get called again.
-    //     // If there are no more records, `done` will get called.
-    //     fetchNextPage();
-    //   },
-    //   function done(err) {
-    //     if (err) {
-    //       console.error(err);
-    //       return;
-    //     }
-    //   }
-    // );
-    console.log(tickets);
-    console.log(await x.all());
-    return await x.all();
+    return await tickets.all();
   }
 }
