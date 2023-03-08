@@ -10,9 +10,9 @@ const agente_routes_1 = __importDefault(require("./routes/agente.routes"));
 const ticket_routes_1 = __importDefault(require("./routes/ticket.routes"));
 const app = (0, express_1.default)();
 app.use((0, morgan_1.default)("dev"));
+app.use(express_1.default.json());
 app.use(venta_routes_1.default);
 app.use(agente_routes_1.default);
 app.use(ticket_routes_1.default);
-app.use(express_1.default.json());
 exports.default = app;
 //# sourceMappingURL=app.js.map

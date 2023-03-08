@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAgenteByIdController = exports.getAgentesController = void 0;
+exports.getAgenteByPuestoController = exports.getAgentesController = void 0;
 const agente_service_1 = require("../services/agente.service");
 async function getAgentesController(_req, res) {
     try {
@@ -13,10 +13,10 @@ async function getAgentesController(_req, res) {
     }
 }
 exports.getAgentesController = getAgentesController;
-async function getAgenteByIdController(req, res) {
+async function getAgenteByPuestoController(req, res) {
     try {
-        const numero = req.params.num;
-        const agente = await (0, agente_service_1.getAgenteById)(numero);
+        const numero = req.params.puesto;
+        const agente = await (0, agente_service_1.getAgenteByPuesto)(numero);
         res.status(200).send(agente);
     }
     catch (e) {
@@ -24,5 +24,5 @@ async function getAgenteByIdController(req, res) {
         res.sendStatus(500);
     }
 }
-exports.getAgenteByIdController = getAgenteByIdController;
+exports.getAgenteByPuestoController = getAgenteByPuestoController;
 //# sourceMappingURL=agente.controller.js.map
