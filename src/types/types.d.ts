@@ -1,9 +1,20 @@
 // import { FieldSet } from "airtable";
 import { tipoDeTicket } from "../constants";
+import { Venta } from "../models/venta";
 
 type tipoTicket = typeof tipoDeTicket[number];
 
-export interface TicketOperaciones {
+type TicketOperaciones = {
+  tipoTicket: tipoTicket;
+  clienteDesancle: string;
+  identificacionDesancle: string;
+  numPuesto: string;
+  equipo: string;
+  observacion: string;
+  estado: string;
+} & Venta;
+
+export interface TicketOperaciones1 {
   tipoTicket: tipoTicket;
   clienteDesancle: string;
   identificacionDesancle: string;

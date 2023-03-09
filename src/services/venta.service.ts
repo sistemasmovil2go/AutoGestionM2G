@@ -6,9 +6,9 @@ export async function getVentaAsesor(identificacion: string): Promise<Venta[]> {
   return venta;
 }
 
-export async function getVentaById(id: number): Promise<Venta[]> {
+export async function getVentaById(id: number): Promise<Venta> {
   const venta = await Venta.find({
     where: { idVentaCabecera: id, estadoVenta: Not("Eliminado") },
   });
-  return venta;
+  return venta[0];
 }
