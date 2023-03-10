@@ -3,7 +3,7 @@ import {
   getTicketsAsesorController,
   insertTicketController,
   insertTicketAppOpController,
-  // insertTicketDesancleController,
+  insertTicketDesancleController,
 } from "../controllers/ticket.controller";
 
 const router = Router({ caseSensitive: true });
@@ -14,6 +14,6 @@ router.post("/ticket/:puesto", insertTicketController);
 
 router.post("/ticket/appOp/:puesto/:idVenta", insertTicketAppOpController);
 
-// router.post("/ticket/desancle/:puesto/", insertTicketDesancleController);
+router.post("/ticket/desancle/:puesto/", insertTicketDesancleController);
 
 export default router;

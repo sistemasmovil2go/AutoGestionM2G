@@ -1,11 +1,15 @@
 import { Request, Response } from "express";
-import { FieldSet } from "airtable";
 import { getAgenteByPuesto } from "../services/agente.service";
 import {
   getTicketsAsesor,
   insertAppOpTicket,
+  insertDesancleTicket,
   insertTicket,
 } from "../services/ticket.service";
+import {
+  toNewOpTicketAppOp,
+  toNewOpTicketDesancle,
+} from "../utils/parseRequestBody";
 
 export async function getTicketsAsesorController(
   req: Request,
@@ -19,71 +23,49 @@ export async function getTicketsAsesorController(
     res.status(200).send(tickets);
   } catch (e: any) {
     console.log(e.message);
-    res.status(500).send({ msg: e.message });
+    res.status(400).send({ msg: e.message });
   }
-}
-
-export async function hasInsertPermission(
-  puesto: string,
-  nombreAsesorFromCampos: string
-): Promise<boolean> {
-  const nombreAsesor: string = (await getAgenteByPuesto(puesto)).name;
-
-  return nombreAsesor === nombreAsesorFromCampos;
 }
 
 export async function insertTicketController(req: Request, res: Response) {
   try {
-    const camposTicket = req.body as FieldSet;
-    const permission = await hasInsertPermission(
-      req.params.puesto,
-      String(camposTicket.asesor)
-    );
+    const camposTicket = req.body;
 
-    if (!permission) {
-      res.status(403).send({
-        msg: "No tienes permiso para insertar ticket sobre esta venta",
-      });
-      return;
-    }
     const response = await insertTicket(camposTicket);
     res.send(response);
   } catch (e: any) {
     console.log(e.message);
-    res.status(500).send({ msg: e.message });
+    res.status(400).send({ msg: e.message });
   }
 }
 
 export async function insertTicketAppOpController(req: Request, res: Response) {
   try {
-    const camposTicket = req.body as FieldSet;
-    const permission = await hasInsertPermission(
-      req.params.puesto,
-      String(camposTicket.asesor)
-    );
-    console.log(permission);
-
-    if (!permission) {
-      res.status(403).send({
-        msg: "No tienes permiso para insertar ticket sobre esta venta",
-      });
-      return;
-    }
+    const newTicket = toNewOpTicketAppOp(req.body);
 
     const response = await insertAppOpTicket(
-      camposTicket,
-      Number(req.params.idVenta)
+      newTicket,
+      Number(req.params.idVenta),
+      req.params.puesto
     );
     res.send(response);
   } catch (e: any) {
     console.log(e.message);
-    res.status(500).send({ msg: e.message });
+    res.status(400).send({ msg: e.message });
   }
 }
 
-// export async function insertTicketDesancleController(
-//   req: Request,
-//   res: Response
-// ) {
+export async function insertTicketDesancleController(
+  req: Request,
+  res: Response
+) {
+  try {
+    const newTicket = toNewOpTicketDesancle(req.body);
 
-// }
+    const response = await insertDesancleTicket(newTicket);
+    res.send(response);
+  } catch (e: any) {
+    console.log(e.message);
+    res.status(400).send({ msg: e.message });
+  }
+}

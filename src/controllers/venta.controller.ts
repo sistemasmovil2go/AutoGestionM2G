@@ -12,7 +12,7 @@ export async function getVentasController(
     res.status(200).send(ventas);
   } catch (e: any) {
     console.log(e.message);
-    res.sendStatus(500);
+    res.status(400).send({ msg: e.message });
   }
 }
 
@@ -27,6 +27,6 @@ export async function getVentaByIdController(
     res.status(200).send(venta);
   } catch (e: any) {
     console.log(e.message);
-    res.sendStatus(500);
+    res.status(400).send({ msg: e.message });
   }
 }
