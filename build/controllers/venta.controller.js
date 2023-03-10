@@ -10,7 +10,7 @@ async function getVentasController(req, res) {
     }
     catch (e) {
         console.log(e.message);
-        res.sendStatus(500);
+        res.status(400).send({ msg: e.message });
     }
 }
 exports.getVentasController = getVentasController;
@@ -22,7 +22,7 @@ async function getVentaByIdController(req, res) {
     }
     catch (e) {
         console.log(e.message);
-        res.sendStatus(500);
+        res.status(400).send({ msg: e.message });
     }
 }
 exports.getVentaByIdController = getVentaByIdController;

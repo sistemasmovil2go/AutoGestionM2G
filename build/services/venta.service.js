@@ -9,10 +9,19 @@ async function getVentaAsesor(identificacion) {
 }
 exports.getVentaAsesor = getVentaAsesor;
 async function getVentaById(id) {
-    const venta = await venta_1.Venta.find({
-        where: { idVentaCabecera: id, estadoVenta: (0, typeorm_1.Not)("Eliminado") },
+    const venta = await venta_1.Venta.findOneBy({
+        idVentaCabecera: id,
+        estadoVenta: (0, typeorm_1.Not)("Eliminado"),
     });
+    if (!venta)
+        throw new Error("No se ha encontrado niguna venta con ese identificador");
+    formatDate(venta);
     return venta;
 }
 exports.getVentaById = getVentaById;
+function formatDate(venta) {
+    const fecha = venta.fechaIngreso.toISOString().split("T")[0];
+    venta.fechaIngreso = fecha;
+    return venta;
+}
 //# sourceMappingURL=venta.service.js.map

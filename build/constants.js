@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tipoDeTicket = exports.AIRTABLE_ACCESS_TOKEN = exports.ENV = exports.ISSABEL_PORT = exports.SQL_SERVER_PORT = exports.EXPRESS_PORT = void 0;
+exports.listaTipoTickets = exports.AIRTABLE_ACCESS_TOKEN = exports.ENV = exports.ISSABEL_PORT = exports.SQL_SERVER_PORT = exports.EXPRESS_PORT = void 0;
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.EXPRESS_PORT = Number(process.env.EXPRESS_PORT);
@@ -31,10 +31,10 @@ exports.SQL_SERVER_PORT = Number(process.env.SQL_SERVER_PORT);
 exports.ISSABEL_PORT = Number(process.env.ISSABEL_PORT);
 exports.ENV = process.env.ENV;
 exports.AIRTABLE_ACCESS_TOKEN = process.env.AIRTABLE_ACCESS_TOKEN;
-exports.tipoDeTicket = [
+exports.listaTipoTickets = [
     "Desancle",
     "Reserva Sugar",
-    "Cambiar de APP a OP",
+    "APP a OP",
     "Llamada de contacto",
 ];
 //# sourceMappingURL=constants.js.map
